@@ -1,0 +1,627 @@
+{% load static extras %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Profile</title>
+
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+   <!-- Favicon icon -->
+   <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" type="image/x-icon">
+   <link rel="icon" href="{% static 'assets/images/favicon.ico' %}" type="image/x-icon">
+
+   <!-- Google font-->
+   <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+
+   <!-- themify -->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/themify-icons/themify-icons.css' %}">
+
+   <!-- iconfont -->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/icofont/css/icofont.css' %}">
+
+   <!-- simple line icon -->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/simple-line-icons/css/simple-line-icons.css' %}">
+
+   <!-- Required Fremwork -->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+   <!-- Chartlist chart css -->
+   <link rel="stylesheet" href="{% static 'assets/plugins/chartist/dist/chartist.css' %}" type="text/css" media="all">
+
+   <!-- Weather css -->
+   <link href="{% static 'assets/css/svg-weather.css' %}" rel="stylesheet">
+
+
+   <!-- Style.css -->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
+
+   <!-- Responsive.css-->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
+
+</head>
+
+<body class="sidebar-mini fixed">
+   <div class="loader-bg">
+      <div class="loader-bar">
+      </div>
+   </div>
+   <div class="wrapper">
+      <!-- Navbar-->
+      {% include "dashboard/nav.html" %}
+      <!-- Side-Nav-->
+      {% include "dashboard/sidebar.html" %}
+      <!-- Sidebar chat start -->
+      <div id="sidebar" class="p-fixed header-users showChat">
+         <div class="had-container">
+            <div class="card card_main header-users-main">
+               <div class="card-content user-box">
+                  <div class="md-group-add-on p-20">
+                     <span class="md-add-on">
+                                    <i class="icofont icofont-search-alt-2 chat-search"></i>
+                                 </span>
+                     <div class="md-input-wrapper">
+                        <input type="text" class="md-form-control" name="username" id="search-friends">
+                        <label>Search</label>
+                     </div>
+
+                  </div>
+                  <div class="media friendlist-main">
+
+                     <h6>Friend List</h6>
+
+                  </div>
+                  <div class="main-friend-list">
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-2.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Alice</div>
+                           <span>1 hour ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="7" data-status="offline" data-username="Michael Scofield" data-toggle="tooltip" data-placement="left" title="Michael Scofield">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-3.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-danger"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Michael Scofield</div>
+                           <span>3 hours ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="5" data-status="online" data-username="Irina Shayk" data-toggle="tooltip" data-placement="left" title="Irina Shayk">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-4.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Irina Shayk</div>
+                           <span>1 day ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="6" data-status="offline" data-username="Sara Tancredi" data-toggle="tooltip" data-placement="left" title="Sara Tancredi">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-5.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-danger"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Sara Tancredi</div>
+                           <span>2 days ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-2.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Alice</div>
+                           <span>1 hour ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-2.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Alice</div>
+                           <span>1 hour ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-2.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Alice</div>
+                           <span>1 hour ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </div>
+      <div class="showChat_inner">
+         <div class="media chat-inner-header">
+            <a class="back_chatBox">
+               <i class="icofont icofont-rounded-left"></i> Josephin Doe
+            </a>
+         </div>
+         <div class="media chat-messages">
+            <a class="media-left photo-table" href="#!">
+               <img class="media-object img-circle m-t-5" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+               <div class="live-status bg-success"></div>
+            </a>
+            <div class="media-body chat-menu-content">
+               <div class="">
+                  <p class="chat-cont">I'm just looking around. Will you tell me something about yourself?</p>
+                  <p class="chat-time">8:20 a.m.</p>
+               </div>
+            </div>
+         </div>
+         <div class="media chat-messages">
+            <div class="media-body chat-menu-reply">
+               <div class="">
+                  <p class="chat-cont">I'm just looking around. Will you tell me something about yourself?</p>
+                  <p class="chat-time">8:20 a.m.</p>
+               </div>
+            </div>
+            <div class="media-right photo-table">
+               <a href="#!">
+                  <img class="media-object img-circle m-t-5" src="{% static 'assets/images/avatar-2.png' %}" alt="Generic placeholder image">
+                  <div class="live-status bg-success"></div>
+               </a>
+            </div>
+         </div>
+         <div class="media chat-reply-box">
+            <div class="md-input-wrapper">
+               <input type="text" class="md-form-control" id="inputEmail" name="inputEmail">
+               <label>Share your thoughts</label>
+               <span class="highlight"></span>
+               <span class="bar"></span> <button type="button" class="chat-send waves-effect waves-light">
+                     <i class="icofont icofont-location-arrow f-20 "></i>
+                 </button>
+
+               <button type="button" class="chat-send waves-effect waves-light">
+                    <i class="icofont icofont-location-arrow f-20 "></i>
+                </button>
+            </div>
+
+         </div>
+      </div>
+      <!-- Sidebar chat end-->
+      <div class="content-wrapper">
+         <!-- Container-fluid starts -->
+         <!-- Main content starts -->
+         <div class="container-fluid">
+            <div class="row">
+                <div class="main-header">
+                  <div>
+                     {% if messages %}
+                     <ul class="message">
+                        {% for message in messages %}
+                           <li class="{% if message.tags %} alert alert-{{message.tags}} {% endif %}"> {{ message }} </li>
+                        {% endfor %}
+                     </ul>
+                     {% endif %}
+                  </div>
+                   <h4>Profile</h4>
+                   {% if messages %}
+                     <ul class="message">
+                        {% for message in messages %}
+                           <li class="{% if message.tags %} fa fa-{{message.tags}} {% endif %}" id="msg"> {{message }} </li>
+                        {% endfor %}
+                     </ul>
+                   {% endif %}
+                </div>
+             </div>
+            <!-- 4-blocks row start -->
+            <div class="row dashboard-header">
+               <div class="col-lg-3 col-md-3">
+                  <div class="card dashboard-product">
+                    <div class="card-body dashboard-total-products">
+                        <img src="{{request.user.images.url}}" alt="profile-image" class="profile img-circle" height="20%" width="20%">
+                        <span class="card-title">
+                           {% if request.user.get_full_name %}
+                              {{ request.user.get_full_name }}
+                              {% if request.user.date_created|mydate %}
+                                 <p> {{ request.user.date_created|timesince }} </p>
+                              {% else %}
+                                 <p> {{ request.user.date_updated|timesince }} </p>
+                              {% endif %}
+                              
+                           {% else %}
+                              {{request.user.username}}
+                              {% if request.user.date_created|mydate %}
+                                 {{request.user.date_created|mydate|timesince }}
+                              {% else %}
+                                 {{request.user.date_updated|mydate|timesince }}
+                              {% endif %}
+                           {% endif %}
+                           
+                        </span>
+                        <br />
+                        <span style="font-family: 'Times New Roman', Times, serif;">{{ request.user.bio }}</span>
+                        <div class="icon-block">
+                          <a href="javascript:void();"><i class="fa fa-facebook bg-facebook text-white"></i></a>
+                          <a href="javascript:void();"> <i class="fa fa-twitter bg-twitter text-white"></i></a>
+                          <a href="javascript:void();"> <i class="fa fa-google-plus bg-google-plus text-white"></i></a>
+                        </div>
+                    </div>
+        
+                    <div class="card-body border-top border-light">
+                        {% if skills and request.user.main_stack %}
+                           <div class="media align-items-center">
+                              {% for skills in skills %}
+                              <div>
+                                 <img src="{{skills.icons.url}}" class="skill-img img-circle" alt="skill img" height="30px" width="30px">
+                              </div>
+                              <div class="media-body text-left ml-3">
+                                 <div class="progress-wrapper">
+                                    <p>{{ skills.stack }}<span class="float-right">65%</span></p>
+                                    <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar" style="width:65%"></div>
+                                    </div>
+                                 </div>                   
+                              </div>
+                              {% endfor %}
+                           </div>
+                           <hr>
+                           
+                        {% elif request.user.main_stack %}
+                           <div class="media align-items-center">
+                              <div>
+                                 <img src="{% static 'img/user.jpg' %}" class="skill-img" alt="skill img">
+                              </div>
+                              <div class="media-body text-left ml-3">
+                                 <div class="progress-wrapper">
+                                    <p>{{ request.user.main_stack}} <span class="float-right">65%</span></p>
+                                    <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar" style="width:65%"></div>
+                                    </div>
+                                 </div>                   
+                              </div>
+                           </div>
+                        {% else %}
+                           <div> No Stack Found </div>
+                        {% endif %}
+                    </div>
+                  </div>
+               </div>
+               <div class="col-lg-9 col-md-9">
+                  <div class="card dashboard-product">
+                    <div class="card-body">
+                        <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                            <li class="nav-item">
+                                <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active"><i class="icon-user"></i> <span class="hidden-xs">Profile</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Messages</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
+                            </li>
+                        </ul>
+                        <div class="tab-content p-3">
+                            <div class="tab-pane active" id="profile">
+                                <h5 class="mb-3">My Profile</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>About</h6>
+                                        <p style="margin-bottom: 20px">
+                                          {% if skills and request.user.main_stack %}
+                                             {% for skill in skills %}   
+                                                {{ skill.stack }}
+                                                {% if not forloop.last %}
+                                                ,
+                                                {% endif %}
+                                             {% endfor %}
+                                          {% elif request.user.main_stack %}
+                                             {{ request.user.main_stack }}
+                                          {% else %}
+                                             <p> No skill selected </p>
+                                          {% endif %}
+                                        </p>
+                                        <h6>Hobbies</h6>
+                                        <p>
+                                          {% if skills %}
+                                             {% for skills in skills %}
+                                                {{ skills }}
+                                                {% if not forloop.last %}
+                                                ,
+                                                {% endif %}
+                                             {% endfor %}
+                                          {% else %}
+                                            no habbies found 
+                                          {% endif %}
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Recent badges</h6>
+                                        <a href="javascript:void();" class="badge badge-dark badge-pill">html5</a>
+                                        <a href="javascript:void();" class="badge badge-dark badge-pill">react</a>
+                                        <a href="javascript:void();" class="badge badge-dark badge-pill">codeply</a>
+                                        <a href="javascript:void();" class="badge badge-dark badge-pill">angularjs</a>
+                                        <a href="javascript:void();" class="badge badge-dark badge-pill">css3</a>
+                                        <a href="javascript:void();" class="badge badge-dark badge-pill">jquery</a>
+                                        <a href="javascript:void();" class="badge badge-dark badge-pill">bootstrap</a>
+                                        <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a>
+                                        <hr>
+                                        <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
+                                        <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
+                                        <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                                    </div>
+                                    <div class="col-md-12 " style="margin-top: 30px">
+                                        <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
+                                         <div class="table-responsive">
+                                        <table class="table table-hover table-striped">
+                                            <tbody>                                    
+                                                <tr>
+                                                    <td>
+                                                        {% profile_updated request.user %}
+                                                    </td>
+
+                                                    {% if request.user.is_superuser %}
+                                                    <td>
+                                                      {% users_updated %}
+                                                    </td>
+                                                    {% endif %}
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                </div>
+                                <!--/row-->
+                            </div>
+                            <div class="tab-pane" id="messages">
+                              <div class="table-responsive">
+                                <table class="table table-hover table-striped">
+                                    <tbody>                                    
+                                        <tr>
+                                            <td>
+                                               <span class="float-right font-weight-bold">{% modal request.user %}
+                                            </td>
+                                        </tr>
+                                    </tbody> 
+                                </table>
+                              </div>
+                            </div>
+                            <div class="tab-pane" id="edit">
+                                <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row mb-4">
+                                       {% for fields in form %}
+                                          <div class="col-sm-4">
+                                          <label class="col-form-label form-control-label">{{ fields.label }}</label>
+                                             {{ fields }}
+                                          </div>
+                                       {% endfor %}
+                                       {{ formset.management_form }}
+                                       {{ formset.non_form_errors }}
+                                       <div class="col-sm-12">
+                                          {% for form in formset %}
+                                                <div class="inline row {{ formset.prefix }}">
+                                                   {% for fields in form.visible_fields %}
+                                                      <div class="col-sm-3">
+                                                         <label class="col-form-label form-control-label">{{ fields.label}}</label>
+                                                         {{ fields }}
+                                                      </div>
+                                                   {% endfor %}
+                                                </div>
+                                          {% endfor %}
+                                       </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 20px;">
+                                        {% comment %} <label class="col-lg-3 col-form-label form-control-label"></label> {% endcomment %}
+                                        <div class="col-lg-3 col-sm-3 col-md-3"></div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6">
+                                            {% comment %} <input type="reset" class="btn btn-secondary" value="Cancel"> {% endcomment %}
+                                            <input type="submit" class="btn btn-primary mt-3 form-control" value="Save Changes">
+                                        </div>
+                                        <div class="col-lg-3 col-sm-3 col-md-3"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                  </div>
+               </div>
+            </div>
+            <!-- 4-blocks row end -->
+
+         </div>
+
+         <!-- notifications -->
+         {% include "dashboard/modal.html" %}
+         <!-- Main content ends -->
+      </div>
+   </div>
+
+   <script>
+      msg = document.getElementById("msg");
+      setTimeout(function(){
+         msg.style.display = "none";
+      }, 5000);
+   </script>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.formset/1.2.1/jquery.formset.js"></script>
+
+   <script type="text/javascript">
+    $('.inline.{{ formset.prefix }}').formset({
+        prefix: "{{ formset.prefix }}",
+        addCssClass: `btn btn-block btn-info d-inline bordered inline-form-add add-form-btn`    ,
+        deleteText: `
+                    <div class="row align-items-center flex-right">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4" style="display: flex; justify-content: right">
+                            <span style="margin-bottom: 20px" class="btn btn-danger"> 
+                                <i class="fa fa-trash " ></i>Delete 
+                            </span>
+                        </div>
+                    </div>`,    
+        addText: 'add new book',        
+        formCssClass: 'inline-form'
+    });
+
+    var book_number = document.getElementById("id_book_set-MAX_NUM_FORMS");
+    console.log(book_number.value);
+    const addFormBtn = document.getElementById('add-form-btn');
+    book_total = document.querySelectorAll('.formset-form');
+    console.log(book_total.length);
+   <!-- Required Jqurey -->
+   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+   <script src="{% static 'assets/plugins/Jquery/dist/jquery.min.js' %}"></script>
+   <script src="{% static 'assets/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+   <script src="{% static 'assets/plugins/tether/dist/js/tether.min.js' %}"></script>
+
+   <!-- Required Fremwork -->
+   <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+   <!-- Scrollbar JS-->
+   <script src="{% static 'assets/plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+   <script src="{% static 'assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js' %}"></script>
+
+   <!--classic JS-->
+   <script src="{% static 'assets/plugins/classie/classie.js' %}"></script>
+
+   <!-- notification -->
+   <script src="{% static 'assets/plugins/notification/js/bootstrap-growl.min.js' %}"></script>
+
+   <!-- Sparkline charts -->
+   <script src="{% static 'assets/plugins/jquery-sparkline/dist/jquery.sparkline.js' %}"></script>
+
+   <!-- Counter js  -->
+   <script src="{% static 'assets/plugins/waypoints/jquery.waypoints.min.js' %}"></script>
+   <script src="{% static 'assets/plugins/countdown/js/jquery.counterup.js' %}"></script>
+
+   <!-- Echart js -->
+   <script src="{% static 'assets/plugins/charts/echarts/js/echarts-all.js' %}"></script>
+
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+   <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+
+   <!-- custom js -->
+   <script type="text/javascript" src="{% static 'assets/js/main.min.js' %}"></script>
+   <script type="text/javascript" src="{% static 'assets/pages/dashboard.js' %}"></script>
+   <script type="text/javascript" src="{% static 'assets/pages/elements.js' %}"></script>
+   <script src="{% static 'assets/js/menu.min.js' %}"></script>
+   <script>
+var $window = $(window);
+var nav = $('.fixed-button');
+$window.scroll(function(){
+    if ($window.scrollTop() >= 200) {
+       nav.addClass('active');
+    }
+    else {
+       nav.removeClass('active');
+    }
+});
+   </script>
+
+</body>
+
+</html>

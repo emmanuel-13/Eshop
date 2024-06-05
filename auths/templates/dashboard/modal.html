@@ -1,0 +1,58 @@
+{% load static extras %}
+<div class="modal fade" id="seemodal" tabindex="-1" role="dialog" aria-labelledby="modalCeterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+          <input type="hidden" value="{{ room.id }}" id="room_id">
+          <h5 class="modal-title" id="modalLongTitle"> All Notifications </h5>
+       </div>
+
+       <div class="modal-body" style="height: 400px; overflow-y: scroll" id="modal_body">
+        {% modal request.user %}
+       </div>
+
+       <div class="modal-footer">
+          <button type="button" class="Close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="text-right">close</span>
+          </button>
+
+          <span style="display: none;"> {{ csrf_token }} </span>
+          <input type="hidden" value="False" id="user"/>
+          <button type="button" class="btn btn-danger" id="clear">clear</button>
+       </div>
+    </div>
+    </div>
+</div>
+
+<script>
+    clear = document.getElementById("clear");
+    user = document.getElementById("user");
+    csrf = document.getElementsByName("csrfmiddlewaretoken");
+
+    clear.addEventListener("click", function(e){
+        e.preventDefault();
+        data = {
+            "status": user.value,
+            "csrf": csrf
+        }
+        alert(data['status']);
+
+        $.ajax({
+            "type": "POST",
+            "url": "/auths/clear/",
+            data: data,
+            beforeSend: function(xhr){
+                xhr.setRequestHeader("X-CSRFToken", data['csrf']);
+            },
+            success: function(res){
+                if(res.status == true){
+                    alert("clear successfully");
+                    document.getElementById("model_body").style.display = "none";
+                }
+            },
+            error: function(res){
+                alert("error processing the data");
+            }
+        })
+    })
+</script>

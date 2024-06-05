@@ -1,0 +1,163 @@
+{% extends "components/base.html" %}
+
+{% load static %}
+
+
+{% block title %} Blog| {{ blog.new }} {% endblock %}
+
+{% block content %}
+
+    <!-- Blog Details Hero Begin -->
+    <section class="blog-details-hero set-bg" data-setbg="{% static 'static2/img/breadcrumb.jpg' %}" height="400px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="blog__details__hero__text">
+                        <h2>{{ blog.topic|linebreaks }}</h2>
+                        <ul>
+                            <li>{% if blog.author.first_name %} {{ blog.author.get_full_name }} {% else %} {{ blog.author.username }} {% endif %}</li>
+                            <li> {{ blog.date_created|date }} </li>
+                            <li>{{ blog.get_comment_total }} Comments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Hero End -->
+
+    <!-- Blog Details Section Begin -->
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-5 order-md-1 order-2">
+                    <div class="blog__sidebar">
+                        {% if recent %}
+                        <div class="blog__sidebar__item">
+                            <h4>Recent News</h4>
+                            {% for recent in recent  %}
+                            <div class="blog__sidebar__recent">
+                                <a href="{% url "blog_details" recent.slug %}" class="blog__sidebar__recent__item">
+                                    <div class="blog__sidebar__recent__item__pic">
+                                        <img src="{{ recent.image.url }}" alt="" height="50px" width="40px">
+                                    </div>
+                                    <div class="blog__sidebar__recent__item__text">
+                                        <h6>{{ recent.topic|truncatechars:20 }}<br /> {{ recent.new.title }}</h6>
+                                        <span>{{ recent.date_created|date }}</span>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="blog__sidebar__item">
+                            <h4>Comment ({{ blog.get_comment_total }})</h4>
+                            <div class="blog__sidebar__item__tags">
+                                <div class="row">
+                                    {% if blog.comment_set.exists %}
+
+                                    <div class="col-sm-12">
+                                        <div class="blog__details__author">
+                                            <img src="{{ blog.comment_set.first.user.images.url }}" alt="" height="30px" width="30px" class="rounded-circle">
+                                            <span>{{ blog.comment_set.first.user.username }}</span>
+                                            <p> {{ blog.comment_set.first.comment }} </p>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12"> 
+                                            <form action="#" method="post">
+                                                {% csrf_token %}
+                                                {{form.as_p}}
+                                                <br />
+                                                <button class="btn btn-success form-control"> Submit </button>
+                                            </form>
+
+                                    </div>
+                                </div>
+                                    
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-7 order-md-1 order-1">
+                    <div class="blog__details__text">
+                        <img src="{{ blog.image.url }}" alt="" width="800px" height="500px">
+                        <p> {{ blog.descriptions|safe|linebreaks }} </p>
+                    </div>
+                    <div class="blog__details__content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="blog__details__author">
+                                    <div class="blog__details__author__pic">
+                                        <img src="{{ blog.author.images.url }}" alt="" height="50px" width="50px">
+                                    </div>
+                                    <div class="blog__details__author__text">
+                                        <h6>{% if blog.author.first_name %}  {{ blog.author.get_full_name }} {% else %} {{ blog.author.username }} {% endif %} </h6>
+                                        <span>{% if blog.author.is_superuser %} Admin {% endif %} </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="blog__details__widget">
+                                    <ul>
+                                        <li><span>Categories:</span> {{ blog.new.title }}</li>
+                                        <li><span>Tags:</span> All, Trending, Cooking, Healthy Food, Life Style</li>
+                                    </ul>
+                                    <div class="blog__details__social">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        <a href="#"><i class="fa fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Section End -->
+
+    <!-- Related Blog Section Begin -->
+    <section class="related-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title related-blog-title">
+                        <h2>Post You May Like</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% if others %}
+                    {% for others in others  %}
+                        {% if blog.topic != others.topic %}
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="blog__item">
+                                <div class="blog__item__pic">
+                                    <img src="{{ others.image.url }}" alt="" height="200px" width="30px">
+                                </div>
+                                <div class="blog__item__text">
+                                    <ul>
+                                        <li><i class="fa fa-calendar-o"></i> {{ others.date_ccreated|date }}</li>
+                                        <li><i class="fa fa-comment-o"></i> {{others.get_comment_total }} </li>
+                                    </ul>
+                                    <h5><a href="{% url "blog_details" others.slug %}">{{ others.topic|truncatechars:20 }}|{{ others.new.title}} </a></h5>
+                                    <p> {{ others.descriptions|safe|linebreaks|truncatechars:30 }} </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <!-- Related Blog Section End -->
+
+{% endblock %}

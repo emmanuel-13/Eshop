@@ -1,0 +1,89 @@
+{% extends "components/base.html" %}
+
+{% load static %}
+
+{% block title %} Checkout {% endblock %}
+
+{% block content %}
+
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad" style="margin-top: -50px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
+                    </h6>
+                </div>
+            </div>
+            <div class="checkout__form">
+                <h4>Billing Details</h4>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="row">
+                                {% for fields in myuser %}
+                                    <div class="col-lg-6">
+                                        <div class="checkout__input">
+                                            <p>{{fields.label}}<span>*</span></p>
+										    {{fields}}
+                                        </div>
+									</div>
+								{% endfor %}
+                            </div>
+
+                            <div class="row">
+                                {% for fields in form  %}
+                                <div class="col-lg-5">
+                                    <div class="checkout__input">
+                                        <p>{{ fields.label }}<span>*</span></p>
+                                        {{ fields }}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% comment %} <div class="checkout__input__checkbox">
+                                <label for="diff-acc">
+                                    Ship to a different address?
+                                    <input type="checkbox" id="diff-acc">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div> {% endcomment %}
+                            {% comment %} <div class="checkout__input">
+                                <p>Order notes<span>*</span></p>
+                                <input type="text"
+                                    placeholder="Notes about your order, e.g. special notes for delivery.">
+                            </div> {% endcomment %}
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                                <h4>Your Order</h4>
+                                {% if cartitems %}
+                                <div class="checkout__order__products">Products <span>Total</span></div>
+                                {% for items in cartitems  %}
+                                <ul>
+                                    <li>{{items.product.name}} <span>${{ items.get_price_item }}</span></li>
+                                </ul>
+                                {% endfor %}
+                                <div class="checkout__order__subtotal">Subtotal <span>${{cart.get_cart_total}}</span></div>
+                                <div class="checkout__order__total">Total <span>${{cart.get_cart_total_tax}}</span></div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="acc-or">
+                                        Create an account?
+                                        <input type="checkbox" id="acc-or">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <p>Enjoy Good Shopping, Enjoy the best shopping on Eshop</p>
+                                <button type="submit" class="site-btn">PLACE ORDER</button>
+
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Checkout Section End -->
+{% endblock %}
