@@ -18,7 +18,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["eshop-v37y.onrender.com", "localhost:8000"]
+# ALLOWED_HOSTS = ["eshop-v37y.onrender.com", "http://localhost:8000/", "http://127.0.0.1:8000/"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -109,6 +110,17 @@ USE_I18N = True
 
 USE_TZ = True
 
+
+# EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
+# # EMAIL_HOST_USER = "jackoliver023@gmail.com"
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
