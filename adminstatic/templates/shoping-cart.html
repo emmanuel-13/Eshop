@@ -1,0 +1,95 @@
+{% extends "components/base.html" %}
+
+
+{% load static %}
+
+{% block title %} Cart {% endblock %}
+
+{% block content %}
+
+    <!-- Shoping Cart Section Begin -->
+    <section class="shoping-cart spad" style="margin-top: -50px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="shoping__cart__table">
+                        <table>
+                            {% if cart_product %}
+                            <thead>
+                                <tr>
+                                    <th class="shoping__product">Products</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    {% for cart_product in cart_product  %}
+                                        <tr>
+                                            <td class="shoping__cart__item">
+                                                <img src="{{cart_product.product.image.url}}" alt="" height="50px" width="50px">
+                                                <h5>{{ cart_product.product.name }}</h5>
+                                            </td>
+                                            <td class="shoping__cart__price">
+                                                ${{ cart_product.product.new_price }}
+                                            </td>
+                                            <td class="shoping__cart__quantity">
+
+                                                <div class="quantity">
+                                                    <form method="post" action="{% url "cart_update" cart_product.id %}">
+                                                        {% csrf_token %}
+                                                        <div style="display: flex">
+                                                            <input type="hidden" name="product"  value="{{cart_product.product.id}}">
+                                                            <input type="text" name="quantity" value="{{cart_product.quantity}}">
+                                                            <button type="submit" class="btn btn-primary"> update </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                            <td class="shoping__cart__total">
+                                                ${{ cart_product.get_price_item }}
+                                            </td>
+                                            <td class="shoping__cart__item__close">
+                                                <a href="{% url "cart_delete" cart_product.id %}"><span class="icon_close"></span></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                            </tbody>
+                            {% else %}
+                                        <p> No product found in the cart </p>
+                                {% endif %}
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="shoping__checkout">
+                        <h4> Cart Items </h4>
+                            <ul>
+                                {% for items in cart_product %}
+                                <li>{{ items.product.name}} <span>${{ items.get_price_item }}</span></li>
+                                {% endfor %}
+                            </ul>
+                        
+                        <hr />
+                        <h5>Cart Total</h5>
+                        <ul>
+                            <li>Subtotal <span>${{ cart.get_cart_total }}</span></li>
+                            <li>
+                                Total <span>${{ cart.get_cart_total_tax }}</span>
+                                <br />
+                                <marquee><span> A 1.02% fee is attracted </span></marquee>
+                            </li>
+                        </ul>
+                        <div style="display: flex; justify-content: space-between">
+                            <a href="{% url "checkout" %}"><button class="btn btn-secondary mr-4"> PROCEED TO CHECKOUT </button></a>
+                            <a href="{% url "shop" %}"><button class="btn btn-primary"> CONTINUE SHOPPING </button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shoping Cart Section End -->
+
+{% endblock %}

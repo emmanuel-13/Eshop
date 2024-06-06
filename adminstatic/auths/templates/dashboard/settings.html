@@ -1,0 +1,566 @@
+{% load static extras %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Settings</title>
+
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+   <!-- Favicon icon -->
+   <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" type="image/x-icon">
+   <link rel="icon" href="{% static 'assets/images/favicon.ico' %}" type="image/x-icon">
+
+   <!-- Google font-->
+   <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+
+   <!-- themify -->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/themify-icons/themify-icons.css' %}">
+
+   <!-- iconfont -->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/icofont/css/icofont.css' %}">
+
+   <!-- simple line icon -->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/simple-line-icons/css/simple-line-icons.css' %}">
+
+   <!-- Required Fremwork -->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+   <!-- Chartlist chart css -->
+   <link rel="stylesheet" href="{% static 'assets/plugins/chartist/dist/chartist.css' %}" type="text/css" media="all">
+
+   <!-- Weather css -->
+   <link href="{% static 'assets/css/svg-weather.css' %}" rel="stylesheet">
+
+
+   <!-- Style.css -->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
+
+   <!-- Responsive.css-->
+   <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
+   <style>
+      #pro {
+         display: none;
+      }
+   </style>
+
+</head>
+
+<body class="sidebar-mini fixed">
+   <div class="loader-bg">
+      <div class="loader-bar">
+      </div>
+   </div>
+   <div class="wrapper">
+      <!-- Navbar-->
+      {% include "dashboard/nav.html" %}
+      <!-- Side-Nav-->
+      {% include "dashboard/sidebar.html" %}
+      <!-- Sidebar chat start -->
+      <div id="sidebar" class="p-fixed header-users showChat">
+         <div class="had-container">
+            <div class="card card_main header-users-main">
+               <div class="card-content user-box">
+                  <div class="md-group-add-on p-20">
+                     <span class="md-add-on">
+                                    <i class="icofont icofont-search-alt-2 chat-search"></i>
+                                 </span>
+                     <div class="md-input-wrapper">
+                        <input type="text" class="md-form-control" name="username" id="search-friends">
+                        <label>Search</label>
+                     </div>
+
+                  </div>
+                  <div class="media friendlist-main">
+
+                     <h6>Friend List</h6>
+
+                  </div>
+                  <div class="main-friend-list">
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-2.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Alice</div>
+                           <span>1 hour ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="7" data-status="offline" data-username="Michael Scofield" data-toggle="tooltip" data-placement="left" title="Michael Scofield">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-3.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-danger"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Michael Scofield</div>
+                           <span>3 hours ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="5" data-status="online" data-username="Irina Shayk" data-toggle="tooltip" data-placement="left" title="Irina Shayk">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-4.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Irina Shayk</div>
+                           <span>1 day ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="6" data-status="offline" data-username="Sara Tancredi" data-toggle="tooltip" data-placement="left" title="Sara Tancredi">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-5.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-danger"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Sara Tancredi</div>
+                           <span>2 days ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-2.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Alice</div>
+                           <span>1 hour ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-2.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Alice</div>
+                           <span>1 hour ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-2.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Alice</div>
+                           <span>1 hour ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                     <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                        <a class="media-left" href="#!">
+                           <img class="media-object img-circle" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+                           <div class="live-status bg-success"></div>
+                        </a>
+                        <div class="media-body">
+                           <div class="friend-header">Josephin Doe</div>
+                           <span>20min ago</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </div>
+      <div class="showChat_inner">
+         <div class="media chat-inner-header">
+            <a class="back_chatBox">
+               <i class="icofont icofont-rounded-left"></i> Josephin Doe
+            </a>
+         </div>
+         <div class="media chat-messages">
+            <a class="media-left photo-table" href="#!">
+               <img class="media-object img-circle m-t-5" src="{% static 'assets/images/avatar-1.png' %}" alt="Generic placeholder image">
+               <div class="live-status bg-success"></div>
+            </a>
+            <div class="media-body chat-menu-content">
+               <div class="">
+                  <p class="chat-cont">I'm just looking around. Will you tell me something about yourself?</p>
+                  <p class="chat-time">8:20 a.m.</p>
+               </div>
+            </div>
+         </div>
+         <div class="media chat-messages">
+            <div class="media-body chat-menu-reply">
+               <div class="">
+                  <p class="chat-cont">I'm just looking around. Will you tell me something about yourself?</p>
+                  <p class="chat-time">8:20 a.m.</p>
+               </div>
+            </div>
+            <div class="media-right photo-table">
+               <a href="#!">
+                  <img class="media-object img-circle m-t-5" src="{% static 'assets/images/avatar-2.png' %}" alt="Generic placeholder image">
+                  <div class="live-status bg-success"></div>
+               </a>
+            </div>
+         </div>
+         <div class="media chat-reply-box">
+            <div class="md-input-wrapper">
+               <input type="text" class="md-form-control" id="inputEmail" name="inputEmail">
+               <label>Share your thoughts</label>
+               <span class="highlight"></span>
+               <span class="bar"></span> <button type="button" class="chat-send waves-effect waves-light">
+                     <i class="icofont icofont-location-arrow f-20 "></i>
+                 </button>
+
+               <button type="button" class="chat-send waves-effect waves-light">
+                    <i class="icofont icofont-location-arrow f-20 "></i>
+                </button>
+            </div>
+
+         </div>
+      </div>
+      <!-- Sidebar chat end-->
+      <div class="content-wrapper">
+         <!-- Container-fluid starts -->
+         <!-- Main content starts -->
+         <div class="container-fluid">
+            <div class="row">
+               <div class="main-header">
+                  <h4>Settings</h4>
+               </div>
+            </div>
+            <!-- 4-blocks row start -->
+            <div class="row dashboard-header">
+               <div class="col-lg-3 col-md-6">
+                  <div class="card dashboard-product">
+                     <span>Lastest Product</span>
+                     <h4 class="dashboard-total-products">{% if pro %}<a href="{% url 'shop_details' pro.first %}"> {{ pro|first }} </a>{% else %} No Lastest Product {% endif %}</h4>
+                     <span class="label label-warning">Total</span>{{pro|length}} product{{ pro|pluralize:"',s"}} found
+                     <div class="side-box">
+                        <i class="ti-signal text-warning-color"></i>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-3 col-md-6">
+                  <a href="{% url "shop" %}">
+                     <div class="card dashboard-product">
+                        <span>Total Products Avaliable</span>
+                        <h4 class="dashboard-total-products">{{ total|length }} <span> Product </span></h4>
+                        <span class="label label-primary">{% if view.first.product.first.date_updated|mydate %} View Today  {% else %} {{ view.first.product.count }} products: viewed {{ view.first.date_updated|timesince}} ago {% endif %} 
+                        <div class="side-box">
+                           <i class="ti-gift text-primary-color"></i>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+
+               <div class="col-lg-3 col-md-6">
+                  <div class="card dashboard-product">
+                     <span>Recently Viewed</span>
+                     <h4 class="dashboard-total-products"><span>{% if view %} {{view.first.product.first}} {% else %} No Product Viewed {% endif %}</span></h4>
+                     <span class="label label-success">Total view</span> {{ view.first.product.all|length }} Views
+                     <div class="side-box">
+                        <i class="ti-direction-alt text-success-color"></i>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-lg-3 col-md-6">
+                  <div class="card dashboard-product">
+                     <span>Recent Messages </span>
+                     <h4 class="dashboard-total-products"><span>{% if message %} {{message.first.body}} {% else %} No Lastest Message {% endif %}</span></h4>
+                     <span class="label label-danger">Total message{{message|pluralize}} </span> {{ message|length}}
+                     <div class="side-box">
+                        <i class="ti-rocket text-danger-color"></i>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+            <!-- 4-blocks row end -->
+            <hr />
+
+            
+
+            <div class="row dashboard-header">
+               <div class="col-lg-4 col-md-6">
+                  <div class="card">
+                     <div class="user-block-2">
+                        <img class="img-fluid" src="{% if request.user.images %} {{request.user.images.url }} {% else %} {% static 'assets/images/widget/user-1.png' %} {% endif %}" alt="user-header" height="100px" width="100px">
+                        <h5>{% if request.user.get_full_name %} {{ request.user.get_full_name }}{% else %} {{ request.user.username }} {% endif %}</h5>
+                        <h6>{% if request.user.main_stack %} {{ request.user.main_stack }} {% endif %} </h6>
+                     </div>
+                     <div class="card-block">
+                        <div class="user-block-2-activities">
+                           <div class="user-block-2-active">
+                              <i class="icofont icofont-clock-time"></i> Recent Activities
+                              <label class="label label-primary">{{message|length}}</label>
+                           </div>
+                        </div>
+
+                        <div class="user-block-2-activities">
+                           <div class="user-block-2-active">
+                              <i class="icofont icofont-ui-user"></i> Following
+                              <label class="label label-primary">{{room|length}}</label>
+                           </div>
+
+                        </div>
+
+                        <div style="display: flex; justify-content: center">
+                         <a href="{% url "profile" %}"><button class="btn btn-primary"> View Profile </button></a>
+                        </div>
+
+
+                        <div class="text-center">
+                           {% comment %} <button type="button" class="btn btn-warning waves-effect waves-light text-uppercase m-r-30">
+                                    Follows
+                           </button> {% endcomment %}
+
+                           {% if mes %}
+                           <a href="{% url "room" mes.room.name %}">
+                              <button type="button" class="btn btn-primary waves-effect waves-light text-uppercase" ">
+                                 Recent Message
+                              </button>
+                           </a>
+                           {% endif %}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-8 col-md-6" id="carrier">
+                  <div class="col-lg-6 col-md-6">
+                     <div class="card dashboard-product">
+                        <span>Recent Room Joined</span>
+                        <h4 class="dashboard-total-products"><span>{% if room.first.date_created == timezone.now %} {{room.first}} {% else %} no new room joined {% endif %}</span></h4>
+                        <span class="label label-success">Total Room Joined</span> {{ room|length }} Room Joined
+                        <div class="side-box">
+                           <i class="ti-direction-alt text-success-color" id="room"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                     <div class="card dashboard-product">
+                        <span> All Product</span>
+                        <h4 class="dashboard-total-products"><span>{% if product %} {{ product|first }} {% else %} No Product {% endif %}</span></h4>
+                        <span class="label label-success">Total view</span> {{ product|length }} Product Found
+                        <div class="side-box" id="product">
+                           <i class="ti-direction-alt text-success-color"></i>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-lg-8 col-md-6" id="overall">
+                  <div class="col-lg-12 col-md-12" id="rooms">
+                     <div class="card dashboard-product">
+                           <span>Recently Viewed</span>
+                           <h4 class="dashboard-total-products"><span>{% if room %} All Rooms Joined {% else %} No Rooms  {% endif %}</span></h4>
+                           {% if room %}
+                              
+                                 <table class="table-borderless table">
+                                    <thead> 
+                                       <tr>
+                                          <th> Author </th>
+                                          <th> Topic </th>
+                                          <th> Room Name </th>
+                                       </tr>
+                                    </thead>
+                                    <tbody> 
+                                       {% for rooms in room  %}
+                                       <tr>
+                                          <td> {{ rooms.host.username }} </td>
+                                          <td> {{ rooms.topic }} </td>
+                                          <td> {{ rooms.name }} </td>
+                                          <td><a href="{% url "room" rooms.name %}"> <i class="fas fa-eye"></i> </a></td>
+                                       </tr>
+                                       {% endfor %}
+                                    </tbody>
+                                 </table>
+                              
+                                 <div style="display: flex; justify-content: center">
+                                    <a href="{% url 'community' %}"><span class="btn btn-primary"> View All </span></a>
+                                 </div>
+                           {% else %}
+                              <p> No Room found </p>
+                           {% endif %}
+                           <div class="side-box" id="roomss">
+                              <i class="ti-direction text-success-color"></i>
+                           </div>
+                     </div>
+                  </div>
+
+                  <div class="col-lg-12 col-md-6" id="pro">
+                     <div class="card dashboard-product">
+                           <span>All Product</span>
+                           <h4 class="dashboard-total-products"><span>{% if product %} Avaliable Product {% else %} No Product  {% endif %}</span></h4>
+                           {% if product %}
+                                 <table class="table-borderless table">
+                                    <thead> 
+                                       <tr>
+                                          <th> Product Name </th>
+                                          <th> Image </th>
+                                          <th> Category </th>
+                                          <th> Sub Category </th>
+                                          <th> brand </th>
+                                       </tr>
+                                    </thead>
+                                    <tbody> 
+                                       {% for pro in product  %}
+                                       <tr>
+                                          <td> {{ pro.name|linebreaks }} </td>
+                                          <td> <img src="{{ pro.image.url }}" height="30px" width="30px"> </td>
+                                          <td> {{ pro.category.name|linebreaks }} </td>
+                                          <td> {{ pro.subcat.name|linebreaks }} </td>
+                                          <td> {{ pro.brand.name|linebreaks }} </td>
+                                          <td><a href="{% url "shop_details" pro.slug %}"> <button class="btn btn-primary"> View now </button> </a></td>
+                                       </tr>
+                                       {% endfor %}
+                                    </tbody>
+                                 </table>
+
+                                 <div style="display: flex; justify-content: center">
+                                    <a href="{% url 'shop' %}"><span class="btn btn-info"> View All </span></a>
+                                 </div>
+                              
+
+                           {% else %}
+                              <p> No Room found </p>
+                           {% endif %}
+                           <div class="side-box" id="products">
+                              <i class="ti-direction text-success-color"></i>
+                           </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+         <!-- Main content ends -->
+      </div>
+   </div>
+
+   <script src="{% static "js/settings.js" %}"></script>
+
+   <!-- Required Jqurey -->
+   <script src="{% static 'assets/plugins/Jquery/dist/jquery.min.js' %}"></script>
+   <script src="{% static 'assets/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+   <script src="{% static 'assets/plugins/tether/dist/js/tether.min.js' %}"></script>
+
+   <!-- Required Fremwork -->
+   <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+   <!-- Scrollbar JS-->
+   <script src="{% static 'assets/plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+   <script src="{% static 'assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js' %}"></script>
+
+   <!--classic JS-->
+   <script src="{% static 'assets/plugins/classie/classie.js' %}"></script>
+
+   <!-- notification -->
+   <script src="{% static 'assets/plugins/notification/js/bootstrap-growl.min.js' %}"></script>
+
+   <!-- Sparkline charts -->
+   <script src="{% static 'assets/plugins/jquery-sparkline/dist/jquery.sparkline.js' %}"></script>
+
+   <!-- Counter js  -->
+   <script src="{% static 'assets/plugins/waypoints/jquery.waypoints.min.js' %}"></script>
+   <script src="{% static 'assets/plugins/countdown/js/jquery.counterup.js' %}"></script>
+
+   <!-- Echart js -->
+   <script src="{% static 'assets/plugins/charts/echarts/js/echarts-all.js' %}"></script>
+
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+   <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+
+   <!-- custom js -->
+   <script type="text/javascript" src="{% static 'assets/js/main.min.js' %}"></script>
+   <script type="text/javascript" src="{% static 'assets/pages/dashboard.js' %}"></script>
+   <script type="text/javascript" src="{% static 'assets/pages/elements.js' %}"></script>
+   <script src="{% static 'assets/js/menu.min.js' %}"></script>
+<script>
+var $window = $(window);
+var nav = $('.fixed-button');
+$window.scroll(function(){
+    if ($window.scrollTop() >= 200) {
+       nav.addClass('active');
+    }
+    else {
+       nav.removeClass('active');
+    }
+});
+</script>
+
+</body>
+
+</html>

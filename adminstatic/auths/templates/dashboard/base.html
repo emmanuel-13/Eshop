@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{% block title %} Login {% endblock %}</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="description" content="codedthemes">
+	<meta name="keywords"
+	content=", Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+	<meta name="author" content="codedthemes">
+
+	<!-- Favicon icon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'assets/images/favicon.ico' %}" type="image/x-icon">
+
+	<!-- Google font-->
+   <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+
+	<!--ico Fonts-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/icon/icofont/css/icofont.css' %}">
+
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+	<!-- Style.css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
+
+	<!-- Responsive.css-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+
+    <!-- themify -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/themify-icons/themify-icons.css' %}">
+ 
+    <!-- iconfont -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/icofont/css/icofont.css' %}">
+ 
+    <!-- simple line icon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/simple-line-icons/css/simple-line-icons.css' %}">
+ 
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+ 
+    <!-- Chartlist chart css -->
+    <link rel="stylesheet" href="{% static 'assets/plugins/chartist/dist/chartist.css' %}" type="text/css" media="all">
+ 
+    <!-- Weather css -->
+    <link href="{% static 'assets/css/svg-weather.css' %}" rel="stylesheet">
+ 
+ 
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
+ 
+    <!-- Responsive.css-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
+
+
+</head>
+
+<body>
+    {% block content %}
+
+    {% endblock %}
+       <!-- Required Jqurey -->
+   <script src="{% static 'assets/plugins/jquery/dist/jquery.min.js' %}"></script>
+   <script src="{% static 'assets/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+   <script src="{% static 'assets/plugins/tether/dist/js/tether.min.js' %}"></script>
+
+   <!-- Required Fremwork -->
+   <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+   <!--text js-->
+   <script type="text/javascript" src="{% static 'assets/pages/elements.js' %}"></script>
+
+</html>

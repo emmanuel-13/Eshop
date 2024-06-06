@@ -1,0 +1,970 @@
+{% load static extras %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Community</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+    />
+    <!-- Favicon icon -->
+    <link
+      rel="shortcut icon"
+      href="{% static 'assets/images/favicon.png' %}"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="{% static 'assets/images/favicon.ico' %}"
+      type="image/x-icon"
+    />
+
+    <!-- Google font-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700"
+      rel="stylesheet"
+    />
+
+    <!-- themify -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/icon/themify-icons/themify-icons.css' %}"
+    />
+
+    <!-- iconfont -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/icon/icofont/css/icofont.css' %}"
+    />
+
+    <!-- simple line icon -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/icon/simple-line-icons/css/simple-line-icons.css' %}"
+    />
+
+    <!-- Required Fremwork -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}"
+    />
+
+    <!-- Chartlist chart css -->
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/plugins/chartist/dist/chartist.css' %}"
+      type="text/css"
+      media="all"
+    />
+
+    <!-- Weather css -->
+    <link href="{% static 'assets/css/svg-weather.css' %}" rel="stylesheet" />
+
+    <!-- Style.css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/main.css' %}"
+    />
+
+    <!-- Responsive.css-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/responsive.css' %}"
+    />
+  </head>
+
+  <body class="sidebar-mini fixed">
+    <div class="loader-bg">
+      <div class="loader-bar"></div>
+    </div>
+    <div class="wrapper">
+      <!-- Navbar-->
+      {% include "dashboard/nav.html" %}
+      <!-- Side-Nav-->
+      {% include "dashboard/sidebar.html" %}
+      <!-- Sidebar chat start -->
+      <div id="sidebar" class="p-fixed header-users showChat">
+        <div class="had-container">
+          <div class="card card_main header-users-main">
+            <div class="card-content user-box">
+              <div class="md-group-add-on p-20">
+                <span class="md-add-on">
+                  <i class="icofont icofont-search-alt-2 chat-search"></i>
+                </span>
+                <div class="md-input-wrapper">
+                  <input
+                    type="text"
+                    class="md-form-control"
+                    name="username"
+                    id="search-friends"
+                  />
+                  <label>Search</label>
+                </div>
+              </div>
+              <div class="media friendlist-main">
+                <h6>Friend List</h6>
+              </div>
+              <div class="main-friend-list">
+                <div
+                  class="media friendlist-box"
+                  data-id="1"
+                  data-status="online"
+                  data-username="Josephin Doe"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Josephin Doe"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-1.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Josephin Doe</div>
+                    <span>20min ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="3"
+                  data-status="online"
+                  data-username="Alice"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Alice"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-2.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Alice</div>
+                    <span>1 hour ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="7"
+                  data-status="offline"
+                  data-username="Michael Scofield"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Michael Scofield"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-3.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-danger"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Michael Scofield</div>
+                    <span>3 hours ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="5"
+                  data-status="online"
+                  data-username="Irina Shayk"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Irina Shayk"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-4.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Irina Shayk</div>
+                    <span>1 day ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="6"
+                  data-status="offline"
+                  data-username="Sara Tancredi"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Sara Tancredi"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-5.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-danger"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Sara Tancredi</div>
+                    <span>2 days ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="1"
+                  data-status="online"
+                  data-username="Josephin Doe"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Josephin Doe"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-1.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Josephin Doe</div>
+                    <span>20min ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="3"
+                  data-status="online"
+                  data-username="Alice"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Alice"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-2.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Alice</div>
+                    <span>1 hour ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="1"
+                  data-status="online"
+                  data-username="Josephin Doe"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Josephin Doe"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-1.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Josephin Doe</div>
+                    <span>20min ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="3"
+                  data-status="online"
+                  data-username="Alice"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Alice"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-2.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Alice</div>
+                    <span>1 hour ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="1"
+                  data-status="online"
+                  data-username="Josephin Doe"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Josephin Doe"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-1.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Josephin Doe</div>
+                    <span>20min ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="3"
+                  data-status="online"
+                  data-username="Alice"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Alice"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-2.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Alice</div>
+                    <span>1 hour ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="1"
+                  data-status="online"
+                  data-username="Josephin Doe"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Josephin Doe"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-1.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Josephin Doe</div>
+                    <span>20min ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="1"
+                  data-status="online"
+                  data-username="Josephin Doe"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Josephin Doe"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-1.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Josephin Doe</div>
+                    <span>20min ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="1"
+                  data-status="online"
+                  data-username="Josephin Doe"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Josephin Doe"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-1.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Josephin Doe</div>
+                    <span>20min ago</span>
+                  </div>
+                </div>
+                <div
+                  class="media friendlist-box"
+                  data-id="1"
+                  data-status="online"
+                  data-username="Josephin Doe"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Josephin Doe"
+                >
+                  <a class="media-left" href="#!">
+                    <img
+                      class="media-object img-circle"
+                      src="{% static 'assets/images/avatar-1.png' %}"
+                      alt="Generic placeholder image"
+                    />
+                    <div class="live-status bg-success"></div>
+                  </a>
+                  <div class="media-body">
+                    <div class="friend-header">Josephin Doe</div>
+                    <span>20min ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showChat_inner">
+        <div class="media chat-inner-header">
+          <a class="back_chatBox">
+            <i class="icofont icofont-rounded-left"></i> Josephin Doe
+          </a>
+        </div>
+        <div class="media chat-messages">
+          <a class="media-left photo-table" href="#!">
+            <img
+              class="media-object img-circle m-t-5"
+              src="{% static 'assets/images/avatar-1.png' %}"
+              alt="Generic placeholder image"
+            />
+            <div class="live-status bg-success"></div>
+          </a>
+          <div class="media-body chat-menu-content">
+            <div class="">
+              <p class="chat-cont">
+                I'm just looking around. Will you tell me something about
+                yourself?
+              </p>
+              <p class="chat-time">8:20 a.m.</p>
+            </div>
+          </div>
+        </div>
+        <div class="media chat-messages">
+          <div class="media-body chat-menu-reply">
+            <div class="">
+              <p class="chat-cont">
+                I'm just looking around. Will you tell me something about
+                yourself?
+              </p>
+              <p class="chat-time">8:20 a.m.</p>
+            </div>
+          </div>
+          <div class="media-right photo-table">
+            <a href="#!">
+              <img
+                class="media-object img-circle m-t-5"
+                src="{% static 'assets/images/avatar-2.png' %}"
+                alt="Generic placeholder image"
+              />
+              <div class="live-status bg-success"></div>
+            </a>
+          </div>
+        </div>
+        <div class="media chat-reply-box">
+          <div class="md-input-wrapper">
+            <input
+              type="text"
+              class="md-form-control"
+              id="inputEmail"
+              name="inputEmail"
+            />
+            <label>Share your thoughts</label>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <button type="button" class="chat-send waves-effect waves-light">
+              <i class="icofont icofont-location-arrow f-20"></i>
+            </button>
+
+            <button type="button" class="chat-send waves-effect waves-light">
+              <i class="icofont icofont-location-arrow f-20"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar chat end-->
+      <div class="content-wrapper">
+        <!-- Container-fluid starts -->
+        <!-- Main content starts -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="main-header">
+              <h4>
+                <a href="{% url 'community' %}">
+                  <i class="ti-signal text-warning-color"></i>
+                </a>
+                {{ room.topic.name }}
+              </h4>
+            </div>
+          </div>
+          <!-- 4-blocks row start -->
+          <div class="row dashboard-header">
+            <div class="col-lg-7 col-md-6">
+              <div class="card dashboard-product">
+                <span>{{ room.name }}</span>
+                {% if  request.user == room.host %}
+                <input type="hidden" value="{{ room.id }}" id="id"/>
+                <span class="btn btn-primary mr-4" data-toggle="modal" data-target="#mymodal"> Update </span>
+                <span class="btn btn-secondary" data-toggle="modal" data-target="#deletemodal"> Delete </span>
+                {% endif %}
+                <p> by {{ room.host.username }}  </p>
+                <div class="text-right">
+                  <span class="label label-warning"
+                    >{% if room.date_created == timezone.now %} created {% else %} updated {% endif %}
+                    {{ room.date_updated|timesince}}
+                  </span>
+                  
+                </div>
+                <p class="dashboard-total-products">{{ room.description }}</p>
+
+                <div class="chat-container bg-primary mb-3" style="height: 400px; overflow-y: scroll">
+                  <!-- Recent Messages -->
+                  <div id="myroommessages">
+                    {% if room_message %}
+                      {% for room_message in room_message %}
+                      <div class="mt-4 row ml-4">
+                        <div class="col-sm-8">
+                          <img src="{{ room_message.user.images.url}}" class="img-circle" height="40px" width="40px" />
+                          <span>@{{ room_message.user.username }}</span>
+                          <span> {{ room_message.date_created.date|mydate }} </span>
+                        </div>
+
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2">
+                          {% if request.user == room_message.user %}
+                            {% if room_message.date_created.date|mydate %}
+                            <input type="hidden" value="{{ room_message.room.name }}" id="room_name">
+                            <input type="hidden" value="{{ room_message.id }}" id="message_id">
+                            <span class="text-right mr-4"> 
+                              <i class="ti-signal text-danger-color" id="dele" data-toggle="modal" data-target="#delemodal"></i>
+                            </span>
+                              
+                            <!-- delete message -->
+                            {% endif %}
+                          {% endif %}
+                        </div>
+                      </div>
+                      <div>
+                        {{ room_message.body}}
+                      </div>
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+
+                </div>
+
+                {% if request.user.is_authenticated %}
+
+                  {% if request.user in participant %}
+                  <div class="input-group mt-2">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ room.name }}" id="roomnames">
+                    <input type="hidden" value="{{ room.id }}" id="id">
+                    <textarea name="mes" id="mes" cols="30" class="form-control" placeholder="Search term" rows="2" style="border-radius: 15px;"></textarea>
+                    <span class="input-group-btn">
+                      <button class="btn btn-info" type="button" id="send" style="padding: 10px; border-radius: 10px;">Send</button>
+                    </span>
+                  </div>
+                  {% else %}
+                  <span class="mt-2">
+                    Hello {{ request.user.username}}, please go back and join the group before sending message
+                  </span>
+                  {% endif %}
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card dashboard-product">
+                <span>Participant</span>
+                {% for part in participant %}
+                <h5 class="dashboard-total-products">
+                <div style="display: flex; justify-content: space-between">
+                  <div>
+                    <img src="{{ part.images.url }}" height="30px" width="30px"/>
+                    {{ part.username }}
+                  </div>
+                  <div class="text-right">
+                    {% if room.host.username  != part.username %}
+
+                      {% if part.username == request.user.username %}
+                      {% csrf_token %}
+                      <input type="hidden" value="{{ room.name }}" id="leaveroom" />
+                      <input type="hidden" value="{{ room.id }}" id="leaveroomid" />
+                      <button class="btn btn-secondary" id="leave"> leave </button>
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                </div>
+                </h5>
+                {% endfor %}
+                <div class="side-box">
+                  <span class="label label-danger">
+                    {{ participant|length }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 col-md-2"></div>
+          </div>
+          <!-- 4-blocks row end -->
+
+          
+
+          <!-- update model -->
+          <div
+            class="modal fade"
+            id="mymodal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modalCeterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <input type="hidden" value="{{ room.id }}" id="room_id">
+                  <h5 class="modal-title" id="modalLongTitle">{{ room.name }}</h5>
+                  <button
+                    type="button"
+                    class="Close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true" class="text-right">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="col-md-12">
+                        <input required type="text" value="{{ room.topic.name }}" name="topic" id="topic" list="topic-list" class="form-control" placeholder="Topic"/>
+                        <datalist id="topic-list">
+                           <select id="topic">
+                           <option value="">Select your topic</option>
+                           {% for topics in topic  %}
+                           <option value="{{topics.name}}"> {{topics.name}} </option>
+                           {% endfor %}
+                           </select>
+                        </datalist>
+                     </div>
+                      {% for fields in form %}
+                      <div class="col-md-12">
+                        <div class="md-input-wrapper">{{ fields}}</div>
+                      </div>
+                      {% endfor %}
+
+                      <div class="col-sm-6 col-xs-12"></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-10 offset-xs-1">
+                        <button type="button" class="btn btn-primary btn-md btn-block text-center m-b-20"
+                          id="updated">
+                          Update Room
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- <div class="modal-footer">
+                        close
+                    </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- end update model -->
+
+
+          <!-- delete model -->
+          <div
+            class="modal fade"
+            id="deletemodal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modalCeterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <input type="hidden" value="{{ room.id }}" id="room_id">
+                    <h5 class="modal-title" id="modalLongTitle">you are about to delete {{ room.name }} </h5>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="Close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-right">close</span>
+                    </button>
+
+                    <span style="display: none;"> {{ csrf_token }} </span>
+                    <input type="hidden" value="{{ room.id }}" id="id">
+                    <button type="button" class="btn btn-danger" id="delete">delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end delete model -->
+
+          <!-- delete message -->
+          <div
+          class="modal fade"
+          id="delemodal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="modalCeterTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="modalLongTitle">are you sure you wanna delete this message </h5>
+              </div>
+
+              <div class="modal-footer">
+                  <button type="button" class="Close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true" class="text-right">close</span>
+                  </button>
+
+                  <span style="display: none;"> {{ csrf_token }} </span>
+                  <button type="button" class="btn btn-danger" id="deling">delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+          <!-- end message delete -->
+
+        </div>
+
+        <!-- notifications -->
+        {% include "dashboard/modal.html" %}
+        <!-- Main content ends -->
+      </div>
+    </div>
+
+    <script>
+      deling = document.getElementById("deling");
+      room_name = document.getElementById("room_name");
+      message_id = document.getElementById("message_id");
+      csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+      deling.addEventListener("click", function(e){
+        e.preventDefault();
+
+        data = {
+          "room": room_name.value,
+          "id": message_id.value,
+          "csrf": csrf
+        }
+        
+        $.ajax({
+          type: "POST",
+          url: "/auths/delete_messages/",
+          data: data,
+          beforeSend: function(xhr){
+            xhr.setRequestHeader("X-CSRFToken", data['csrf']);
+          },
+          success: function(res){
+            if(res.deleted == true){
+              alert("deleted onces");
+              window.location.reload();
+            }
+          },
+          error: function(res){
+            alert("error processing request");
+          }
+        })
+      })
+    </script>
+
+    
+    <script src="{% static 'js/message.js' %}">
+    
+    <!-- Required Jqurey -->
+    <script src="{% static 'assets/plugins/Jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/tether/dist/js/tether.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!-- Required Fremwork -->
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Scrollbar JS-->
+    <script src="{% static 'assets/plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js' %}"></script>
+
+    <!--classic JS-->
+    <script src="{% static 'assets/plugins/classie/classie.js' %}"></script>
+
+    <!-- notification -->
+    <script src="{% static 'assets/plugins/notification/js/bootstrap-growl.min.js' %}"></script>
+
+    <!-- Sparkline charts -->
+    <script src="{% static 'assets/plugins/jquery-sparkline/dist/jquery.sparkline.js' %}"></script>
+
+    <!-- Counter js  -->
+    <script src="{% static 'assets/plugins/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/countdown/js/jquery.counterup.js' %}"></script>
+
+    <!-- Echart js -->
+    <script src="{% static 'assets/plugins/charts/echarts/js/echarts-all.js' %}"></script>
+
+    {% comment %} <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script> {% endcomment %}
+
+    <!-- custom js -->
+    <script
+      type="text/javascript"
+      src="{% static 'assets/js/main.min.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'assets/pages/dashboard.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'assets/pages/elements.js' %}"
+    ></script>
+    <script src="{% static 'assets/js/menu.min.js' %}"></script>
+    <script>
+      var $window = $(window);
+      var nav = $(".fixed-button");
+      $window.scroll(function () {
+        if ($window.scrollTop() >= 200) {
+          nav.addClass("active");
+        } else {
+          nav.removeClass("active");
+        }
+      });
+    </script>
+
+    <script src="{% static 'js/delete_room.js' %}"></script>
+    <script>
+    data2 = {
+        "id": document.getElementById("room_id"),
+        "topic": document.getElementById("topic"),
+        "room": document.getElementById("room_name"),
+        "description": document.getElementById("description_room"),
+        "csrf_token": document.getElementsByName("csrfmiddlewaretoken"),
+    }
+
+    var update = document.getElementById("updated")
+    
+    update.addEventListener("click", function(e){
+        e.preventDefault();
+
+        data = {
+            "id": data2['id'].value,
+            "topic": data2['topic'].value,
+            "room": data2['room'].value,
+            "description": data2['description'].value,
+            "csrf_token": data2['csrf_token'][0].value
+        }
+
+        if (data['topic'] === "" || data['room'] === "" || data['description'] === "") {
+            console.log("error")
+        } else {
+            $.ajax({
+                url: '/auths/room_update/',
+                type: "POST",
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader("X-CSRFToken", data['csrf_token'])
+                },
+                dataType: "json",
+                data: data,
+                success: function(res){
+                    if (res.status === true) {
+                        alert(res.msg);
+                        window.location.href = `http://127.0.0.1:8000/auths/room/${data['room']}`;
+                    }else{
+                        alert(res.msg);
+                    }
+                },
+                error: function(res){
+                    alert("errror, processing info")
+                    console.log("error processing data")
+                }
+            })
+        } 
+    })
+    </script>
+
+    <script>
+      leaving = document.getElementById('leave');
+      leaveroom = document.getElementById('leaveroom');
+      csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value
+
+      leaving.addEventListener("click", function(e){
+          e.preventDefault();
+          
+          data = {
+              "room": leaveroom.value,
+              "id": leaveroomid.value,
+              "csrf": csrf
+          }
+
+          console.log(data['room'])
+          console.log(data['id'])
+
+          $.ajax({
+            type: "POST",
+            url: "/auths/leave/",
+            dataType: "json",
+            data: data,
+            beforeSend: function(xhr){
+              xhr.setRequestHeader("X-CSRFToken", data['csrf'])
+            },
+            success: function(res){
+              if(res.status === true){
+                alert(res.msg);
+                window.location.href = `http://127.0.0.1:8000/auths/room/${data['room']}`
+              }else{
+                alert("error processing data");
+              }
+            },
+            error: function(res){
+              alert("error getting data");
+            }
+          })
+
+        })
+    </script>
+  </body>
+</html>

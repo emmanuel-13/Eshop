@@ -1,0 +1,51 @@
+{% load static extras %}
+<aside class="main-sidebar hidden-print ">
+    <section class="sidebar" id="sidebar-scroll">
+       <!-- Sidebar Menu-->
+       <ul class="sidebar-menu">
+           <li class="nav-level">--- Navigation</li>
+            <li class="treeview">
+                <a class="waves-effect waves-dark" href="{% url "home" %}">
+                    <i class="icon-speedometer"></i><span> Home </span>
+                </a>                
+            </li>
+           <li class="{% if dashboard %} active {% endif %} treeview">
+               <a class="waves-effect waves-dark" href="{% url "dashboard" %}">
+                   <i class="icon-speedometer"></i><span> Dashboard</span>
+               </a>                
+           </li>
+           <li class="nav-level">--- Components</li>
+
+           <li class=" {% if paids %} active {% elif pend %} active {% endif %} treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-chart"></i><span> My Product </span> {% check_purchase request.user %} <i class="icon-arrow-down"></i></a>
+               <ul class="treeview-menu">
+                   <li class="{% if paids %} active {% endif %}"><a class="waves-effect waves-dark" href="{% url "paid" %}"><i class="icon-arrow-right"></i> Paid Product ({% paid_purchase  request.user %}) {% check_paid_purchase request.user %} </a> </li>
+                   <li class="{% if pend %} active {% endif %}"><a class="waves-effect waves-dark" href="{% url "pending" %}"><i class="icon-arrow-right"></i> Pending Purchase ({% pending_purchase  request.user %}) {% check_pending_purchase request.user %} </a></li>
+               </ul>
+           </li>
+
+           <li class="treeview {% if annoucement %} active {% endif %}">
+            <a class="waves-effect waves-dark" href="{% url "annoucement" %}"><i class="icon-book-open"></i><span> Annoucement</span>
+            </a>
+           </li>
+           
+           <li class="treeview {% if community %} active {% endif %}">
+               <a class="waves-effect waves-dark" href="{% url "community" %}">
+                   <i class="icon-list"></i><span> Community </span>
+               </a>                
+           </li>
+
+           <li class="nav-level">--- More</li>
+           <li class="treeview {% if profile %} active {% endif %}">
+                <a class="waves-effect waves-dark" href="{% url "profile" %}">
+                    <i class="icon-list"></i><span> Profile </span>
+                </a>                
+            </li>
+           <li class="treeview ">
+                <a class="waves-effect waves-dark" href="{% url "settings" %}">
+                <i class="icofont icofont-company"></i>
+                <span>Settings</span>
+                </a>
+           </li>
+       </ul>
+    </section>
+ </aside>

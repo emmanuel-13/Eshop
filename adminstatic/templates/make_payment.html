@@ -1,0 +1,109 @@
+{% extends "components/base.html" %}
+
+{% load static %}
+
+{% block title %} Make Payment Page {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <a href="{% url "checkout" %}" class="btn btn-primary"><i class="fas fa-arrow_back"> back </i></a><h4 class="text-center"> User Confirmation Page </h4>
+                </div>
+
+                <div class="card-body">
+                    <p> Hello {{ request.user.username}}, Please confirm your information </p>
+                    
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th> Name </th>
+                                <th> Email </th>
+                                <th> Phone </th>
+                                <th> Country </th>
+                                <th> State </th>
+                                <th> Address </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td> {{ user_data.first_name}} </td>
+                                <td> {{ user_data.email }} </td>
+                                <td> {{ user_data.phone_number }} </td>
+                                <td> {{ customer_data.country }} </td>
+                                <td> {{customer_data.state }} </td>
+                                <td> {{customer_data.address }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4> Your Order </h4>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Product Name </th>
+                                <th> Product Price </th>
+                                <th> Product Qunatity </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for product in cart_product %}
+                            <tr>
+                                <td> {{ product.product.name}} </td>
+                                <td> #{{ product.product.new_price}} </td>
+                                <td> {{ product.quantity }} </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div style="display: flex; justify-content: space-around">
+                        <p> SubTotal: #{{ cart.get_cart_total }} </p>
+                        <p>Total(after tax(1.02%)): #{{ cart.get_cart_total_tax }} </p>
+                    </div>
+                    <script src="https://js.paystack.co/v1/inline.js"></script>
+                    <button type="submit" onclick="paywithPayStack()" class="btn btn-primary form-control" > Proceed </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+    
+    <script>
+        console.log('{{ pay_key }} {{cart.ref}} {{ amount }}')
+        function paywithPayStack() {
+            let currency = "NGN";
+            let plan = "";
+            let ref = "{{ cart.ref }}";
+            let obj = {
+                key: '{{ pay_key }}',
+                email: '{{ user_data.email }}',
+                first_name: '{{ user_data.first_name }}',
+                amount: '{{ amount }}' * 100,
+                phone: '{{ user_data.phone_no}}',
+                ref: ref,
+   
+                callback: function(response) {
+                    window.location.href = "{% url 'verify_payment' cart.ref %}"
+                }
+            }
+   
+            if (Boolean(currency)) {
+                obj.currency = currency.toUpperCase()
+            }
+   
+            if (Boolean(plan)) {
+               obj.plan = plan;
+           }
+   
+            var handler = PaystackPop.setup(obj)
+            handler.openIframe();
+        }
+    </script>
+{% endblock %}

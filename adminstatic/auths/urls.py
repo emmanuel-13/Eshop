@@ -1,0 +1,30 @@
+from django.urls import path
+from .views import *
+
+urlpatterns = [
+    path("dashboard", dashboard, name='dashboard'),
+    path("login/", mylogin, name='login'),
+    path("register/", register, name='register'),
+    path('logout/', mylogout, name='logout'),
+    path('validate/', username_validation, name="validate"),
+    path('email_validate/', email_validate, name="email_validate"),
+    path('profile/', profile, name='profile'),
+    path('settings/', setting, name='settings'),
+    path('annoucement/', annoucement, name='annoucement'),
+    path('community/', community, name='community'),
+    path('todo/', todo, name='todo'),
+    path('todo/<int:pk>/', delete_todo, name='delete_todo'),
+    path('room/<str:name>', room, name="room"),
+    path('room/', room_form, name="room_form"),
+    path('room_update/', room_update, name="room_update"),
+    path('room_delete/', room_delete, name="room_delete"),
+    path('mytopic/', mytopic, name="mytopic"),
+    path('join/', join, name="join"),
+    path('leave/', leave, name="leave"),
+    path('create_message/', create_message, name="create_message"),
+    path('update_message/', update_message, name="update_message"),
+    path('delete_messages/', delete_messages, name="delete_messages"),
+    path('clear/', clear, name="clear"),
+    path('paid/', paid, name="paid"),
+    path('pending/', pending, name="pending"),
+]

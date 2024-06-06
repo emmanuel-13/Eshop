@@ -1,0 +1,39 @@
+{% load static extras %}
+
+{% if users == True %}
+
+    <span class="block"> {{ info }}</span>
+    <span class="text-muted block-time">{{ time }}</span>
+{% endif %}
+
+{% if times == True %}
+    <a href="#" class="dropdown-item">
+        <h6 class="fw-normal mb-0">{{ new }}</h6>
+        <small>{{ time }} </small>
+    </a>
+{% endif %}
+
+{% if message %}
+    {% for message in message %}
+        <li class="bell-notification">
+            <a href="javascript:;" class="media">
+                <span class="media-left media-icon">
+                <img src="{{ message.user.images.url }}" class="img-circle" height="30px" width="30px" /> 
+                </span>
+                <div class="media-body"><span class="block">{{message.user.username}} sent a message</span><span class="text-muted block-time">{{ message.date_updated|timesince }}  ago </span></div>
+            </a>
+        </li>
+    {% endfor %}
+{% endif %}
+
+
+{% if modal %}
+    {% for modal in modal %}
+        <span> 
+            {{ modal.name }} 
+            <span>  {{ modal.body }} </span>
+        </span>
+        <p> {{ modal.time|timesince }}  </p>
+        <hr />
+    {% endfor %}
+{% endif %}

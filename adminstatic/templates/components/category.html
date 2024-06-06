@@ -1,0 +1,23 @@
+{% if category %}
+    <li>
+        <a href="{% url "shop" %}"> All </a>
+    </li>
+    <hr />
+    {% for category in category  %}
+        <li>
+            <a href="{% url "shop" %}?variant={{ category.name }}"> {{ category }}</a>
+            {% if not forloop.last %}
+                <hr/>
+            {% endif %}
+        </li>
+    {% endfor %}
+
+    {% if category|length >= 10 %}
+    <hr />
+    <li>
+        <button class="btn btn-primary"> View All Category </button>
+    </li>
+    {% endif %}
+{% else %}
+    <li><a href="#">Category not found </a></li>
+{% endif %}
